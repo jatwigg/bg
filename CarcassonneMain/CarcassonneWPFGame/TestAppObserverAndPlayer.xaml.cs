@@ -1,8 +1,4 @@
-﻿using CarcassonneMain.Implementation;
-using CarcassonneMain.Implementation.SaveLoading;
-using CarcassonneMain.Implementation.SimpleRules;
-using CarcassonneMain.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,18 +16,13 @@ using System.Windows.Shapes;
 namespace CarcassonneWPFGame
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for TestAppObserverAndPlayer.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class TestAppObserverAndPlayer : UserControl
     {
-        private IPlayer _localPlayer;
-        private IGame _game;
-        private string _save;
-
-        public MainWindow()
+        public TestAppObserverAndPlayer()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
         }
     }
 }

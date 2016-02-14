@@ -18,5 +18,10 @@ namespace CarcassonneMain.Implementation.SaveLoading
         {
             throw new NotImplementedException();
         }
+
+        public string Save(object _game)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
