@@ -49,6 +49,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WPF Tools">
+      <HintPath>.\WPF Tools.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -56,8 +59,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="MainWindowViewModel.cs" />
-    <Compile Include="MVVM\RelayCommand.cs" />
-    <Compile Include="MVVM\ViewModel.cs" />
     <Compile Include="TestAppObserverAndPlayer.xaml.cs">
       <DependentUpon>TestAppObserverAndPlayer.xaml</DependentUpon>
     </Compile>

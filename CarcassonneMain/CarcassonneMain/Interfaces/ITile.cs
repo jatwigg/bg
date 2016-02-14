@@ -8,5 +8,14 @@ namespace CarcassonneMain.Interfaces
 {
     public interface ITile
     {
+        Type LeftType { get; }
+        Type RightType { get; }
+        Type TopType { get; }
+        Type BottomType { get; }
+
+        ITile Left { get; }
+        ITile Right { get; }
+        ITile Top { get; }
+        ITile Bottom { get; }
     }
 }

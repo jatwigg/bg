@@ -1,5 +1,4 @@
 ﻿using CarcassonneMain.Implementation.SaveLoading;
-using CarcassonneWPFGame.MVVM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +8,7 @@ using System.Windows.Input;
 using CarcassonneMain.Interfaces;
 using CarcassonneMain.Implementation;
 using CarcassonneMain.Implementation.SimpleRules;
+using WPF_Tools;
 
 namespace CarcassonneWPFGame
 {
@@ -18,10 +18,10 @@ namespace CarcassonneWPFGame
 
         public MainWindowViewModel()
         {
-            SaveCommand = new RelayCommand(save);
-            LoadCommand = new RelayCommand(load);
-            StartCommand = new RelayCommand(start);
-            PauseCommand = new RelayCommand(pause);
+            SaveCommand = new AutoCanExecuteRelayCommand(save);
+            LoadCommand = new AutoCanExecuteRelayCommand(load);
+            StartCommand = new AutoCanExecuteRelayCommand(start);
+            PauseCommand = new AutoCanExecuteRelayCommand(pause);
             Player = new LocalPlayer { Name = "Local Guy" };
         }
 
@@ -71,7 +71,6 @@ namespace CarcassonneWPFGame
                 .WithPlayer(Player)
                 // build the game
                 .Build();
-
 
             // attach an observer of the game (UI representation)
             _game.AddObserver(this);
