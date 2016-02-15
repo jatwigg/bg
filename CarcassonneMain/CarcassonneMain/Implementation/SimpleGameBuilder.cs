@@ -9,29 +9,41 @@ namespace CarcassonneMain.Implementation
 {
     public class SimpleGameBuilder : IGameBuilder
     {
+        private List<IRule> _rules = new List<IRule>();
+        private List<IPlayer> _players = new List<IPlayer>();
+
         public IGame Build()
         {
+            var game = new SimpleGame();
             throw new NotImplementedException();
         }
 
         public IGameBuilder WithPlayer(IPlayer player)
         {
-            throw new NotImplementedException();
+            var builder = new SimpleGameBuilder();
+            builder._rules.AddRange(this._rules);
+            builder._players.AddRange(this._players);
+            builder._players.Add(player);
+            return builder;
         }
 
-        public IGameBuilder WithPlayer<T>() where T : IPlayer
+        public IGameBuilder WithPlayer<T>() where T : IPlayer, new()
         {
-            throw new NotImplementedException();
+            return WithPlayer(new T());
         }
 
         public IGameBuilder WithRule(IRule rule)
         {
-            throw new NotImplementedException();
+            var builder = new SimpleGameBuilder();
+            builder._rules.AddRange(this._rules);
+            builder._players.AddRange(this._players);
+            builder._rules.Add(rule);
+            return builder;
         }
 
-        public IGameBuilder WithRule<T>() where T : IRule
+        public IGameBuilder WithRule<T>() where T : IRule, new()
         {
-            throw new NotImplementedException();
+            return WithRule(new T());
         }
     }
 }
