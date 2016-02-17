@@ -9,5 +9,6 @@ namespace CarcassonneMain.Interfaces
     public interface IPlayer
     {
         string Name { get; }
+        int Score { get; }
     }
 }

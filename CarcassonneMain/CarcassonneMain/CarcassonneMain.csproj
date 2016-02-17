@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementation\LocalPlayer.cs" />
+    <Compile Include="Implementation\Remote\RemoteGame.cs" />
     <Compile Include="Implementation\SaveLoading\StringSerialiser.cs" />
     <Compile Include="Implementation\SimpleComputerPlayer.cs" />
     <Compile Include="Implementation\SimpleGame.cs" />

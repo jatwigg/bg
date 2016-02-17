@@ -31,7 +31,10 @@ namespace CarcassonneWPFGame
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
+            DataContext = new MainWindowViewModel
+            {
+                Canvas = canvas
+            };
         }
     }
 }

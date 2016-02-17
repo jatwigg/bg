@@ -20,6 +20,6 @@
             <Button Content="Save" Command="{Binding SaveCommand}" />
             <Button Content="Load" Command="{Binding LoadCommand}" />
         </StackPanel>
-        <local:TestAppObserverAndPlayer Grid.Column="1" Grid.Row="0" DataContext="{Binding TestAppObserverAndPlayerViewModel}" />
+        <Canvas Name="canvas" Grid.Column="1" Grid.Row="0" DataContext="{Binding}" />
     </Grid>
 </Window>

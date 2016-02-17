@@ -9,6 +9,9 @@ using CarcassonneMain.Interfaces;
 using CarcassonneMain.Implementation;
 using CarcassonneMain.Implementation.SimpleRules;
 using WPF_Tools;
+using System.Windows.Controls;
+using System.Windows.Shapes;
+using System.Windows;
 
 namespace CarcassonneWPFGame
 {
@@ -24,8 +27,7 @@ namespace CarcassonneWPFGame
             PauseCommand = new AutoCanExecuteRelayCommand(pause);
             Player = new LocalPlayer { Name = "Local Guy" };
         }
-
-        public TestAppObserverAndPlayerViewModel TestAppObserverAndPlayerViewModel { get; }
+        
         public ICommand SaveCommand { get; }
         public ICommand LoadCommand { get; }
         public ICommand StartCommand { get; }
@@ -42,7 +44,20 @@ namespace CarcassonneWPFGame
             get { return Get<LocalPlayer>(); }
             set { Set(value); }
         }
-        
+
+        public Canvas Canvas { get; set; }
+
+        private void draw()
+        {
+            Rectangle rect1 = new System.Windows.Shapes.Rectangle();
+            rect1.Stroke = System.Windows.Media.Brushes.Black;
+            rect1.Fill = System.Windows.Media.Brushes.Red;
+            rect1.VerticalAlignment = VerticalAlignment.Center;
+            rect1.Height = 50;
+            rect1.Width = 70;
+            Canvas.Children.Add(rect1);
+        }
+
         private void save()
         {
             // save a game like this
@@ -96,7 +111,22 @@ namespace CarcassonneWPFGame
 
         public void TilePlaced(IPlayer player, ITile tile)
         {
-            throw new NotImplementedException();
+            if (tile.Bottom != null)
+            {
+
+            }
+            else if (tile.Top != null)
+            {
+
+            }
+            else if (tile.Left != null)
+            {
+
+            }
+            else if (tile.Right != null)
+            {
+
+            }
         }
 
         public void PersonPlaced(IPlayer player, ITile tile, IPerson person)

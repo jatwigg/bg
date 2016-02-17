@@ -13,9 +13,9 @@ namespace CarcassonneMain.Interfaces
         Type TopType { get; }
         Type BottomType { get; }
 
-        ITile Left { get; }
-        ITile Right { get; }
-        ITile Top { get; }
-        ITile Bottom { get; }
+        int PositionX { get; }
+        int PositionY { get; }
+
+        bool IsStart { get; }
     }
 }
