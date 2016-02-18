@@ -9,5 +9,9 @@ namespace CarcassonneMain.Implementation.SimpleRules
 {
     public class FarmersRule : IRule
     {
+        public ITile[] BuildTiles()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

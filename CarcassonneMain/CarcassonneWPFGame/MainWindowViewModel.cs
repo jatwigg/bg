@@ -104,42 +104,27 @@ namespace CarcassonneWPFGame
             throw new NotImplementedException();
         }
 
-        public void GameStarted()
+        public void GameStarted(IGame game, ITile[] startTiles)
         {
             throw new NotImplementedException();
         }
 
-        public void TilePlaced(IPlayer player, ITile tile)
-        {
-            if (tile.Bottom != null)
-            {
-
-            }
-            else if (tile.Top != null)
-            {
-
-            }
-            else if (tile.Left != null)
-            {
-
-            }
-            else if (tile.Right != null)
-            {
-
-            }
-        }
-
-        public void PersonPlaced(IPlayer player, ITile tile, IPerson person)
+        public void TilePlaced(IGame game, IPlayer player, ITile tile)
         {
             throw new NotImplementedException();
         }
 
-        public void PointsAwarded(IPlayer player, int points, string message)
+        public void PersonPlaced(IGame game, IPlayer player, ITile tile, IPerson person)
         {
             throw new NotImplementedException();
         }
 
-        public void GameOver()
+        public void PointsAwarded(IGame game, IPlayer player, int points, string message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GameOver(IGame game)
         {
             throw new NotImplementedException();
         }

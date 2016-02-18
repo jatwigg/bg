@@ -14,7 +14,7 @@ namespace CarcassonneMain.Implementation
 
         public IGame Build()
         {
-            var game = new SimpleGame();
+            var game = new SimpleGame(_players.ToArray());
             throw new NotImplementedException();
         }
 

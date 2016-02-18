@@ -1,4 +1,6 @@
-﻿using CarcassonneMain.Interfaces;
+﻿using CarcassonneMain.Implementation.SimpleTileProperties;
+using CarcassonneMain.Implementation.SimpleTileTypes;
+using CarcassonneMain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +36,7 @@ namespace CarcassonneMain.Implementation
             _observers.ForEach(o => o.GameStarting(this));
 
             var tilesLeft = getAllTilesShuffled();
-            var startTiles = tilesLeft.Where(t => t.IsStart).ToArray();
+            var startTiles = tilesLeft.Where(t => t.TileProperties.Any(p => p.GetType().Equals(typeof(StartTileProperty)) ) ).ToArray();
             tilesLeft = tilesLeft.Except(startTiles).ToArray();
             bool @continue = true;
 

@@ -10,5 +10,7 @@ namespace CarcassonneMain.Implementation
     public class SimpleComputerPlayer : IPlayer
     {
         public string Name { get; set; }
+
+        public int Score { get; }
     }
 }

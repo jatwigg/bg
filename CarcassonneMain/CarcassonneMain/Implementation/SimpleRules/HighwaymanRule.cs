@@ -9,5 +9,9 @@ namespace CarcassonneMain.Implementation.SimpleRules
 {
     public class HighwaymanRule : IRule
     {
+        public ITile[] BuildTiles()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

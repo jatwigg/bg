@@ -137,11 +137,9 @@ namespace CarcassonneMain.Implementation.SimpleRules.Tilesets
                 BottomType = new CityTileType(),
                 TileProperties = new ITileProperty[] { new CityJoinedProperty(), new CityHasShieldProperty() }
             });
-        }
 
-        private ITile[] build<TLeft, TTop, TRight, TBottom>()
-        {
-            throw new NotImplementedException();
+
+            return tiles.ToArray();
         }
     }
 }
