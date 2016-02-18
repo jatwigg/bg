@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CarcassonneMain.Interfaces
 {
-    public interface IRule
+    public interface ITileSideType
     {
-        ITile[] BuildTiles();
+
     }
 }

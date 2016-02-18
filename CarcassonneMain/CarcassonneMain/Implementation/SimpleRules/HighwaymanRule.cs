@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarcassonneMain.Implementation.SimpleRules
 {
-    public class City : IRule
+    public class HighwaymanRule : IRule
     {
     }
 }

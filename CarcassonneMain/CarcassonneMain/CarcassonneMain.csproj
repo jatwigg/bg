@@ -46,10 +46,21 @@
     <Compile Include="Implementation\SimpleComputerPlayer.cs" />
     <Compile Include="Implementation\SimpleGame.cs" />
     <Compile Include="Implementation\SimpleGameBuilder.cs" />
-    <Compile Include="Implementation\SimpleRules\City.cs" />
-    <Compile Include="Implementation\SimpleRules\Farmers.cs" />
-    <Compile Include="Implementation\SimpleRules\Highwayman.cs" />
-    <Compile Include="Implementation\SimpleRules\Priests.cs" />
+    <Compile Include="Implementation\SimpleRules\CityRule.cs" />
+    <Compile Include="Implementation\SimpleRules\FarmersRule.cs" />
+    <Compile Include="Implementation\SimpleRules\HighwaymanRule.cs" />
+    <Compile Include="Implementation\SimpleRules\PriestsRule.cs" />
+    <Compile Include="Implementation\SimpleRules\Tilesets\DefaultTileset.cs" />
+    <Compile Include="Implementation\SimpleTileProperties\CityHasShieldProperty.cs" />
+    <Compile Include="Implementation\SimpleTileProperties\MonasteryTileProperty.cs" />
+    <Compile Include="Implementation\SimpleTiles\MonasteryTile.cs" />
+    <Compile Include="Implementation\SimpleTiles\StartTile.cs" />
+    <Compile Include="Implementation\SimpleTiles\SimpleTile.cs" />
+    <Compile Include="Implementation\SimpleTileProperties\StartTileProperty.cs" />
+    <Compile Include="Implementation\SimpleTileProperties\CityJoinedProperty.cs" />
+    <Compile Include="Implementation\SimpleTileTypes\CityTileType.cs" />
+    <Compile Include="Implementation\SimpleTileTypes\FieldTileType.cs" />
+    <Compile Include="Implementation\SimpleTileTypes\RoadTileType.cs" />
     <Compile Include="Interfaces\IGame.cs" />
     <Compile Include="Interfaces\IGameBuilder.cs" />
     <Compile Include="Interfaces\ILoadSource.cs" />
@@ -59,7 +70,12 @@
     <Compile Include="Interfaces\IRule.cs" />
     <Compile Include="Interfaces\ISaveSource.cs" />
     <Compile Include="Interfaces\ITile.cs" />
+    <Compile Include="Interfaces\ITileProperty.cs" />
+    <Compile Include="Interfaces\ITileSideType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="An overview.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

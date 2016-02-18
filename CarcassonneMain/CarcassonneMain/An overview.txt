@@ -1,0 +1,43 @@
+﻿
+https://en.wikipedia.org/wiki/Carcassonne_%28board_game%29
+
+Player:
+  Pieces[]
+  Score;
+
+
+Pieces:
+  Meeple.
+  Abbot (+ other expansions).
+
+Meeple:
+  Owned by a Player.
+  7 of these (8 in game but 1 is used for score).
+  Can be placed on some parts of TileSideType.
+  Can be placed on some TileProperty (such as monastery).
+
+Tile:
+  Has 4 sides, which can be of a certain TileSideType.
+  Has 0 or more TilePropery.
+  Has position X,Y from start tile can be minus numbers.
+
+TileSideType:
+  Has rules about what can connect to it, for example:
+    Road->Road
+	City->City
+	River->River
+	Field->Field
+
+TileProperty:
+  Examples such as 
+    End point for roads.
+	Monastery/Cloister.
+	//Farmer can be placed <-- no thats part of the FieldSideType
+
+
+var game = new SimpleGameBuilder()
+.WithRule<DefaultTileset>() // contains city, road, field, monastery
+.WithRule<RiverExpansion>() // contains rivers which REPLACE the start tile and are placed first
+.WithRule<Meeple>()
+.WithRule<Abbot>()
+.Build();

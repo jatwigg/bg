@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarcassonneMain.Implementation.SimpleRules
+namespace CarcassonneMain.Implementation.SimpleTileTypes
 {
-    public class Highwayman : IRule
+    class RoadTileType : ITileSideType
     {
     }
 }

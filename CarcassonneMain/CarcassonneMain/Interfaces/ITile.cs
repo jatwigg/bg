@@ -8,14 +8,16 @@ namespace CarcassonneMain.Interfaces
 {
     public interface ITile
     {
-        Type LeftType { get; }
-        Type RightType { get; }
-        Type TopType { get; }
-        Type BottomType { get; }
+        ITileSideType LeftType { get; }
+        ITileSideType RightType { get; }
+        ITileSideType TopType { get; }
+        ITileSideType BottomType { get; }
+
+        ITileProperty[] TileProperties { get; }
 
         int PositionX { get; }
         int PositionY { get; }
 
-        bool IsStart { get; }
+        // make this a ITileProperty instead : bool IsStart { get; } 
     }
 }

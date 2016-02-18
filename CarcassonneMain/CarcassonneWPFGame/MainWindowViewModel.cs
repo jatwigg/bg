@@ -77,10 +77,10 @@ namespace CarcassonneWPFGame
             // build a game like this
             _game = new SimpleGameBuilder()
                 // rules define cards and stuff that can use properties of cards
-                .WithRule<City>()
-                .WithRule<Farmers>()
-                .WithRule<Priests>()
-                .WithRule<Highwayman>()
+                .WithRule<CityRule>()
+                .WithRule<FarmersRule>()
+                .WithRule<PriestsRule>()
+                .WithRule<HighwaymanRule>()
                 // with players
                 .WithPlayer<SimpleComputerPlayer>()
                 .WithPlayer(Player)

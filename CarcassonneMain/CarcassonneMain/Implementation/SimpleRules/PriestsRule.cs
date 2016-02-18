@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CarcassonneMain.Implementation.SimpleRules
 {
-    public class Priests : IRule
+    public class PriestsRule : IRule
     {
     }
 }
