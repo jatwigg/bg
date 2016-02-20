@@ -53,6 +53,7 @@
     <Compile Include="Implementation\SimpleRules\Tilesets\DefaultTileset.cs" />
     <Compile Include="Implementation\SimpleTileProperties\CityHasShieldProperty.cs" />
     <Compile Include="Implementation\SimpleTileProperties\MonasteryTileProperty.cs" />
+    <Compile Include="Implementation\SimpleTileProperties\RoadsEndProperty.cs" />
     <Compile Include="Implementation\SimpleTiles\MonasteryTile.cs" />
     <Compile Include="Implementation\SimpleTiles\StartTile.cs" />
     <Compile Include="Implementation\SimpleTiles\SimpleTile.cs" />
