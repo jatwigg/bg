@@ -12,6 +12,7 @@ using WPF_Tools;
 using System.Windows.Controls;
 using System.Windows.Shapes;
 using System.Windows;
+using CarcassonneMain.Implementation.SimpleRules.Tilesets;
 
 namespace CarcassonneWPFGame
 {
@@ -77,6 +78,7 @@ namespace CarcassonneWPFGame
             // build a game like this
             _game = new SimpleGameBuilder()
                 // rules define cards and stuff that can use properties of cards
+                .WithRule<DefaultTileset>()
                 .WithRule<CityRule>()
                 .WithRule<FarmersRule>()
                 .WithRule<PriestsRule>()

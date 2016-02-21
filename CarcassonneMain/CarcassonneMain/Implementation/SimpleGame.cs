@@ -13,12 +13,12 @@ namespace CarcassonneMain.Implementation
     {
         private List<IObserver> _observers = new List<IObserver>();
 
-        public SimpleGame(IPlayer[] players)
+        public SimpleGame()
         {
-            Players = players;
+
         }
 
-        public IPlayer[] Players { get; }
+        public IPlayer[] Players { get; internal set; }
 
         public void AddObserver(IObserver observer)
         {

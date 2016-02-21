@@ -14,8 +14,23 @@ namespace CarcassonneMain.Implementation
 
         public IGame Build()
         {
-            var game = new SimpleGame(_players.ToArray());
+            var game = new SimpleGame
+            {
+                Players = _players.ToArray()
+            };
+
+            var tiles = new List<ITile>();
+            var pieces = new List<IPiece>();
+            foreach (IRule rule in _rules)
+            {
+                tiles.AddRange( rule.BuildTiles() );
+                pieces.AddRange( rule.BuildPieces() );
+            }
+
+            //todo: sort tiles and piece properties by priority and remove where applicable
+
             throw new NotImplementedException();
+            return game;
         }
 
         public IGameBuilder WithPlayer(IPlayer player)

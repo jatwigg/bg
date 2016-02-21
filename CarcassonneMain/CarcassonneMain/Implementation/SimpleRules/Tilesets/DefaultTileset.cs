@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CarcassonneMain.Implementation.SimpleRules.Tilesets
 {
-    class DefaultTileset : IRule
+    public class DefaultTileset : IRule
     {
         public ITile[] BuildTiles()
         {
