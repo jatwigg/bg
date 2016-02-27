@@ -27,7 +27,47 @@ namespace CarcassonneMain.Implementation
                 pieces.AddRange( rule.BuildPieces() );
             }
 
+#warning todo
             //todo: sort tiles and piece properties by priority and remove where applicable
+            var groupedByProp = new Dictionary<Type, List<ITile>>();
+            foreach(var tile in tiles)
+            {
+                var properties = tile.TileProperties;
+                foreach (var prop in properties)
+                {
+                    if (groupedByProp.ContainsKey(prop.GetType()))
+                    {
+                        groupedByProp[prop.GetType()].Add(tile);
+                    }
+                    else
+                    {
+                        groupedByProp.Add(prop.GetType(), new List<ITile>(new[] { tile }));
+                    }
+                }
+            }
+
+            var final = groupedByProp.Select(kvp => 
+            {
+                var type = kvp.Key;
+                var orderedTiles = kvp.Value.OrderBy(t => t.TileProperties.First(tp => tp.GetType() == type).PriorityOfProperty);
+                var removeAllThatShouldBeReplaced = orderedTiles.TakeWhile(t => !t.TileProperties.First(tp => tp.GetType() == type).ShouldOverrideLowerPriorityProperty);
+                bool remove = false;
+                foreach(var tile in orderedTiles)
+                {
+                    var prop = tile.TileProperties.First(tp => tp.GetType() == type);
+                    if (!remove)
+                    {
+                        remove = prop.ShouldOverrideLowerPriorityProperty;
+                    }
+                    else
+                    {
+                        // ideally we should remove the property
+                        // todo:
+                        //tile.DeactivateProperty(prop);
+                    }
+                }
+                return kvp;
+            });
 
             throw new NotImplementedException();
             return game;

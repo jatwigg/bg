@@ -12,6 +12,11 @@ namespace CarcassonneMain.Implementation.SimpleRules.Tilesets
 {
     public class DefaultTileset : IRule
     {
+        public IPiece[] BuildPieces()
+        {
+            throw new NotImplementedException();
+        }
+
         public ITile[] BuildTiles()
         {
             var tiles = new List<ITile>();
