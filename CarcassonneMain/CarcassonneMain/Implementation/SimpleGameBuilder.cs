@@ -26,50 +26,29 @@ namespace CarcassonneMain.Implementation
                 tiles.AddRange( rule.BuildTiles() );
                 pieces.AddRange( rule.BuildPieces() );
             }
-
-#warning todo
-            //todo: sort tiles and piece properties by priority and remove where applicable
-            var groupedByProp = new Dictionary<Type, List<ITile>>();
-            foreach(var tile in tiles)
+            
+            // get all tile properties that exist
+            var allPropertyTypes = tiles.SelectMany(t => t.TileProperties.Select(tp => tp.GetType())).Distinct();
+            // foreach property, get all tiles that have that property and order by priority
+            // loop through each ordered list of tiles until one overrides the rest, then deactivate the rest
+            foreach (var type in allPropertyTypes)
             {
-                var properties = tile.TileProperties;
-                foreach (var prop in properties)
-                {
-                    if (groupedByProp.ContainsKey(prop.GetType()))
-                    {
-                        groupedByProp[prop.GetType()].Add(tile);
-                    }
-                    else
-                    {
-                        groupedByProp.Add(prop.GetType(), new List<ITile>(new[] { tile }));
-                    }
-                }
-            }
-
-            var final = groupedByProp.Select(kvp => 
-            {
-                var type = kvp.Key;
-                var orderedTiles = kvp.Value.OrderBy(t => t.TileProperties.First(tp => tp.GetType() == type).PriorityOfProperty);
-                var removeAllThatShouldBeReplaced = orderedTiles.TakeWhile(t => !t.TileProperties.First(tp => tp.GetType() == type).ShouldOverrideLowerPriorityProperty);
-                bool remove = false;
-                foreach(var tile in orderedTiles)
+                var tilesThatHaveTypeOrdered = tiles.Where(t => t.TileProperties.Any(tp => tp.GetType() == type)).OrderByDescending(t => t.TileProperties.First(tp => tp.GetType() == type).PriorityOfProperty).ToArray();
+                bool @override = false;
+                foreach (var tile in tilesThatHaveTypeOrdered)
                 {
                     var prop = tile.TileProperties.First(tp => tp.GetType() == type);
-                    if (!remove)
+                    if (@override)
                     {
-                        remove = prop.ShouldOverrideLowerPriorityProperty;
+                        tile.DeactivateProperty(prop);
                     }
-                    else
+                    else if (prop.ShouldOverrideLowerPriorityProperty)
                     {
-                        // ideally we should remove the property
-                        // todo:
-                        //tile.DeactivateProperty(prop);
+                        @override = true;
                     }
-                }
-                return kvp;
-            });
-
-            throw new NotImplementedException();
+                }                
+            }
+            
             return game;
         }
 

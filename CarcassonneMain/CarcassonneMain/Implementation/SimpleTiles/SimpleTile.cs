@@ -48,5 +48,10 @@ namespace CarcassonneMain.Implementation
             }
             return tiles;
         }
+
+        public void DeactivateProperty(ITileProperty prop)
+        {
+            TileProperties = TileProperties.Except(new[] { prop }).ToArray();
+        }
     }
 }
