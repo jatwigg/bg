@@ -14,11 +14,6 @@ namespace CarcassonneMain.Implementation
 
         public IGame Build()
         {
-            var game = new SimpleGame
-            {
-                Players = _players.ToArray()
-            };
-
             var tiles = new List<ITile>();
             var pieces = new List<IPiece>();
             foreach (IRule rule in _rules)
@@ -48,8 +43,14 @@ namespace CarcassonneMain.Implementation
                     }
                 }                
             }
-            
-            return game;
+
+            return new SimpleGame
+            {
+                Players = _players.ToArray(),
+                Rules = _rules,
+                Tiles = tiles,
+                Pieces = pieces
+            };
         }
 
         public IGameBuilder WithPlayer(IPlayer player)

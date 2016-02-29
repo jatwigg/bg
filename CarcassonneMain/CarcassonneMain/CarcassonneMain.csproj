@@ -47,6 +47,7 @@
     <Compile Include="Implementation\SimpleComputerPlayer.cs" />
     <Compile Include="Implementation\SimpleGame.cs" />
     <Compile Include="Implementation\SimpleGameBuilder.cs" />
+    <Compile Include="Implementation\SimplePieces\Meeple.cs" />
     <Compile Include="Implementation\SimpleRules\CityRule.cs" />
     <Compile Include="Implementation\SimpleRules\FarmersRule.cs" />
     <Compile Include="Implementation\SimpleRules\HighwaymanRule.cs" />
@@ -78,6 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="An overview.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Implementation\Extensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

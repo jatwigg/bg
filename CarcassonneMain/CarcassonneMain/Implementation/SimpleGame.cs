@@ -17,9 +17,7 @@ namespace CarcassonneMain.Implementation
         {
 
         }
-
-        public IPlayer[] Players { get; internal set; }
-
+        
         public void AddObserver(IObserver observer)
         {
             _observers.Add(observer);
@@ -65,7 +63,32 @@ namespace CarcassonneMain.Implementation
 
         private ITile[] getAllTilesShuffled()
         {
-            throw new NotImplementedException();
+            return Tiles.Shuffle().ToArray();
+        }
+
+
+        public List<IPiece> Pieces
+        {
+            get;
+            internal set;
+        }
+
+        public IPlayer[] Players
+        {
+            get;
+            internal set;
+        }
+
+        public List<IRule> Rules
+        {
+            get;
+            internal set;
+        }
+
+        public List<ITile> Tiles
+        {
+            get;
+            internal set;
         }
     }
 }
