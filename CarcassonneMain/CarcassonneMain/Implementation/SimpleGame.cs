@@ -33,8 +33,9 @@ namespace CarcassonneMain.Implementation
 
         public void Start()
         {
-            _observers.ForEach(o => o.GameStarting(this));
-
+            // we need to consider that an observer may be removed by something async or by another observer's implementation
+            NotifyObservers(o => o.GameStarting(this));
+            
             var tilesLeft = getAllTilesShuffled();
             var startTiles = tilesLeft.Where(t => t.TileProperties.Any(p => p.GetType().Equals(typeof(StartTileProperty)) ) ).ToArray();
             tilesLeft = tilesLeft.Except(startTiles).ToArray();
@@ -61,6 +62,29 @@ namespace CarcassonneMain.Implementation
                 }
             }
             while (@continue);
+        }
+        
+        private void NotifyObservers(Action<IObserver> action)
+        {
+            // we need to wrap the observer calls in case they modify the observer list whist we are iterating.
+            // it's important that observers never miss anything.
+            BeginTransaction();
+            var observers = _observers.ToArray();
+            foreach (var o in observers)
+            {
+                action.Invoke(o);
+            }
+            EndTransaction();
+        }
+
+        private void EndTransaction()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void BeginTransaction()
+        {
+            throw new NotImplementedException();
         }
 
         private ITile[] getAllTilesShuffled()
