@@ -19,7 +19,5 @@ namespace CarcassonneMain.Interfaces
         int PositionY { get; }
 
         void DeactivateProperty(ITileProperty prop);
-
-        // make this a ITileProperty instead : bool IsStart { get; } 
     }
 }

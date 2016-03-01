@@ -1,4 +1,5 @@
-﻿using CarcassonneMain.Implementation.SimpleTileProperties;
+﻿using CarcassonneMain.Implementation.SimplePieces;
+using CarcassonneMain.Implementation.SimpleTileProperties;
 using CarcassonneMain.Implementation.SimpleTiles;
 using CarcassonneMain.Implementation.SimpleTileTypes;
 using CarcassonneMain.Interfaces;
@@ -14,7 +15,7 @@ namespace CarcassonneMain.Implementation.SimpleRules.Tilesets
     {
         public IPiece[] BuildPieces()
         {
-            throw new NotImplementedException();
+            return Enumerable.Range(0,8).Select(_ => new Meeple()).ToArray(); // need 8 meeples per person... BuildPieces will need persons or game or something ...
         }
 
         public ITile[] BuildTiles()
